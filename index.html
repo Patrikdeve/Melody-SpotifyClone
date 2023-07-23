@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Melody</title>
+</head>
+<body>
+    <header>
+        <!-- desingned Music Side -->
+        <div class="menu_side">
+            <h1>Playlist</h1>
+            <div class="playlist">
+                <h4 class="active"><span></span><i class="bi bi-file-earmark-music-fill"></i> Playlist</h4>
+                <h4><span></span><i class="bi bi-file-earmark-music-fill"></i> Recently Played</h4>
+                <h4><span></span><i class="bi bi-file-earmark-music-fill"></i> Recommended</h4>
+            </div>
+            <div class="menu_songs">
+                <li class="songItem">
+                    <img src="images/shoorveer.jpg" alt="">
+                    <span>Shoorveer 3 <div class="singer">Meetu Solanki</div></span>
+                    <i class="bi playlistplay bi-vinyl-fill" id="shoorveer"></i>
+                    <i class="bi bi-heart"></i>
+                </li>
+                <li class="songItem" id="playlistplay">
+                    <img src="images/1.jpeg" alt="">
+                    <span  >Shoorveer 3 <div class="singer">Meetu Solanki</div></span>
+                    <i class="bi playlistplay bi-vinyl-fill" id="1"></i>
+                    <i class="bi bi-heart"></i>
+                </li>
+                <li class="songItem" id="playlistplay">
+                    <img src="images/1.jpeg" alt="">
+                    <span>Shoorveer 3 <div class="singer">Meetu Solanki</div></span>
+                    <i class="bi playlistplay bi-vinyl-fill" id="2"></i>
+                    <i class="bi bi-heart"></i>
+                </li>
+                <li class="songItem">
+                    <img src="images/1.jpeg" alt="">
+                    <span >Shoorveer 3 <div class="singer">Meetu Solanki</div></span>
+                    <i class="bi playlistplay bi-vinyl-fill" id="3"></i>
+                    <i class="bi bi-heart"></i>
+                </li>
+                <li class="songItem" id="playlistplay">
+                    <img src="images/1.jpeg" alt="">
+                    <span  >Shoorveer 3 <div class="singer">Meetu Solanki</div></span>
+                    <i class="bi playlistplay bi-vinyl-fill" id="4"> </i>
+                    <i class="bi bi-heart"></i>
+                </li>
+                <li class="songItem" id="playlistplay">
+                    <img src="images/1.jpeg" alt="">
+                    <span >Shoorveer 3 <div class="singer">Meetu Solanki</div></span>
+                    <i class="bi playlistplay bi-vinyl-fill" id="5"> </i>
+                    <i class="bi bi-heart"></i>
+                </li>
+                <li class="songItem" id="playlistplay">
+                    <img src="images/1.jpeg" alt="">
+                    <span >Shoorveer 3 <div class="singer">Meetu Solanki</div></span>
+                    <i class="bi playlistplay bi-vinyl-fill" id="6"></i>
+                    <i class="bi bi-heart"></i>
+                </li>
+                <li class="songItem" id="playlistplay">
+                    <img src="images/1.jpeg" alt="">
+                    <span>Shoorveer 3 <div class="singer">Meetu Solanki</div></span>
+                    <i class="bi playlistplay bi-vinyl-fill" id="7"></i>
+                    <i class="bi bi-heart"></i>
+                </li>
+                <li class="songItem" id="playlistplay">
+                    <img src="images/1.jpeg" alt="">
+                    <span >Shoorveer 3 <div class="singer">Meetu Solanki</div></span>
+                    <i class="bi playlistplay bi-vinyl-fill" id="8"></i>
+                    <i class="bi bi-heart"></i>
+                </li>
+                
+            </div>
+        </div>
+        
+        <!-- Desinged Song Side -->
+        <div class="song_side">
+            <div class="artist">
+                <div class="optiontab"> 
+                    <nav>
+                        <ul> 
+                            <li> Discover</li>
+                            <li>My Library</li>
+                            <li> Radio</li>
+                        </ul>
+                    </nav>
+                    <div class="search"> 
+                        <i class="bi bi-search"></i>
+                        <input type="text"  placeholder="Search Music...">
+                    </div>
+                </div>
+                <div class="info">
+                    <h1>Nate Feurstein - Hope</h1><span>Lyrics : Nate Feurstein (NF), Tommee Profitt</span>
+                    <span>Performed By : Nate Feurstein (NF)</span>
+                </div>
+                <div class="buttons">
+                    <button>Play</button>
+                    <button>Follow</button>
+                </div>
+                <div class="suggestions">
+                    <div class="popularsongs">
+                        <h3>Popular Songs</h3>
+                        <div class="scroll">
+                            <button id="popsongs_left"><</button>
+                            <button id="popsongs_right">></button>
+                        </div>
+                    </div>
+                
+                    <div class="popsongs">
+                        <li class="songItem">
+                            <div class="imageplay">
+                                <img src="images/1.jpeg" alt="" class="playlistplay">
+                                <i class="bi playlistplay bi-play-circle-fill" id="9"></i>
+                            </div>
+                            <span>Shoorveer 3<div class="singer">Meetu Solanki</div></span>
+                        </li>
+                        <li class="songItem">
+                            <div class="imageplay">
+                                <img src="images/1.jpeg" alt="">
+                                <i class="bi playlistplay bi-play-circle-fill" id="10"></i>
+                            </div>
+                            <span>Shoorveer 3<div class="singer">Meetu Solanki</div></span>
+                        </li>
+                        <li class="songItem">
+                            <div class="imageplay">
+                                <img src="images/1.jpeg" alt="">
+                                <i class="bi playlistplay bi-play-circle-fill" id="11"></i>
+                            </div>
+                            <span>Shoorveer 3<div class="singer">Meetu Solanki</div></span>
+                        </li>
+                        <li class="songItem">
+                            <div class="imageplay">
+                                <img src="images/1.jpeg" alt="">
+                                <i class="bi playlistplay bi-play-circle-fill" id="12"></i>
+                            </div>
+                            <span>Shoorveer 3<div class="singer" >Meetu Solanki</div></span>
+                        </li>
+                        <li class="songItem">
+                            <div class="imageplay">
+                                <img src="images/1.jpeg" alt="">
+                                <i class="bi playlistplay bi-play-circle-fill" id="13"></i>
+                            </div>
+                            <span>Shoorveer 3<div class="singer" >Meetu Solanki</div></span>
+                        </li>
+                        <li class="songItem">
+                            <div class="imageplay">
+                                <img src="images/1.jpeg" alt="">
+                                <i class="bi playlistplay bi-play-circle-fill" id="14"></i>
+                            </div>
+                            <span>Shoorveer 3<div class="singer" >Meetu Solanki</div></span>
+                        </li>
+                        <li class="songItem">
+                            <div class="imageplay">
+                                <img src="images/1.jpeg" alt="">
+                                <i class="bi playlistplay bi-play-circle-fill" id="15"></i>
+                            </div>
+                            <span>Shoorveer 3<div class="singer" >Meetu Solanki</div></span>
+                        </li>
+                        <li class="songItem">
+                            <div class="imageplay">
+                                <img src="images/1.jpeg" alt="">
+                                <i class="bi playlistplay bi-play-circle-fill" id="16"></i>
+                            </div>
+                            <span>Shoorveer 3<div class="singer" >Meetu Solanki</div></span>
+                        </li>
+                        <li class="songItem">
+                            <div class="imageplay">
+                                <img src="images/1.jpeg" alt="">
+                                <i class="bi playlistplay bi-play-circle-fill" id="17"></i>
+                            </div>
+                            <span>Shoorveer 3<div class="singer" >Meetu Solanki</div></span>
+                        </li>
+                    </div>
+
+
+                    <!-- artists List is here  -->
+                    <div class="artistlist">
+                        <h3>Popular Artists</h3>
+                        <div class="scroll">
+                            <button id="singerleft"><</button>
+                            <button id="singerright">></button>
+                        </div>
+                    </div>
+                    <div class="singers">
+                        <div class="singer" >
+                            <img src="popsongs/alan.jpg" alt="" >
+                            <span><h4>Alan Walker</h4></span>
+                            <i id="nf"></i>
+                        </div>
+                        
+                        <div class="singer"  id="nf">
+                            <img src="popsongs/alan.jpg" alt="" >
+                            <span><h4>Alan Walker</h4></span>
+                        </div>
+                        
+                        <div class="singer" id="jn">
+                            <img src="popsongs/alan.jpg" alt="">
+                            <span><h4>Alan Walker</h4></span>
+                        </div>
+                        
+                        <div class="singer" id="dhvani">
+                            <img src="popsongs/alan.jpg" alt="">
+                            <span><h4>Alan Walker</h4></span>
+                        </div>
+                        
+                        <div class="singer" id="honey">
+                            <img src="popsongs/alan.jpg" alt="">
+                            <span><h4>Alan Walker</h4></span>
+                        </div>
+                        
+                        <div class="singer" id="guru">
+                            <img src="popsongs/alan.jpg" alt="">
+                            <span><h4>Alan Walker</h4></span>
+                        </div>
+                        
+                        <div class="singer" id="neha">
+                            <img src="popsongs/alan.jpg" alt="">
+                            <span><h4>Alan Walker</h4></span>
+                        </div>
+                        
+                        <div class="singer" id="arijit">
+                            <img src="popsongs/alan.jpg" alt="">
+                            <span><h4>Alan Walker</h4></span>
+                        </div>
+                        <div class="singer" id="atif">
+                            <img src="popsongs/alan.jpg" alt="">
+                            <span><h4>Alan Walker</h4></span>
+                        </div>
+                    </div>
+                        
+                        
+           
+                    </div>
+                </div>
+            </div>
+               
+        </div>
+
+
+
+
+        <!-- //Designed Music Player -->
+        <div class="music_player">
+            <div class ="wave" id="wave">
+                <div class="wave1"></div>
+                <div class="wave1"></div>
+                <div class="wave1"></div>
+            </div>
+            <div class="currentsong">
+                <img src="images/nf-wrapper.jpg" alt="" id="currentsongposter">
+                <h4 id="title" >Hope <div class="singer">NF</div></h4>
+            </div>
+            <div class="icons">
+                <i class="bi bi-shuffle", id="shuffle"></i>
+                <i class="bi bi-skip-start-fill", id="skipbackward"></i>
+                <i class="bi bi-play-circle", id="play"></i>
+                <i class="bi bi-skip-end-fill", id="skipforward"></i>
+                <i class="bi bi-heart", id="like"></i>
+                <i class="bi bi-cloud-download-fill", id="download"></i>
+                
+            </div>
+            <span id="currentStart">0:00</span>
+            <div class="bar">
+                <input type="range", id="seek" min="0" max="100">
+                <div id="bar2"></div>
+                <div id="dot"></div>
+            </div>
+            <span id="currentEnd">0:60</span>
+            <div class="vol">
+                <i class="bi bi-volume-down-fill"></i>
+                <div class="volbar">
+                    <input type="range" id="volume">
+                    <div class="volbar2">
+                    <div class="voldot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </header>
+    <script src="app.js"></script>
+    
+</body>
+</html>
