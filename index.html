@@ -20,9 +20,9 @@
             </div>
             <div class="menu_songs">
                 <li class="songItem">
-                    <img src="images/shoorveer.jpg" alt="">
+                    <img src="images/0.jpg" alt="">
                     <span>Shoorveer 3 <div class="singer">Meetu Solanki</div></span>
-                    <i class="bi playlistplay bi-vinyl-fill" id="shoorveer"></i>
+                    <i class="bi playlistplay bi-vinyl-fill" id="0"></i>
                     <i class="bi bi-heart"></i>
                 </li>
                 <li class="songItem" id="playlistplay">
@@ -174,8 +174,28 @@
                             </div>
                             <span>Shoorveer 3<div class="singer" >Meetu Solanki</div></span>
                         </li>
+                        <li class="songItem">
+                            <div class="imageplay">
+                                <img src="images/1.jpeg" alt="">
+                                <i class="bi playlistplay bi-play-circle-fill" id="18"></i>
+                            </div>
+                            <span>Shoorveer 3<div class="singer" >Meetu Solanki</div></span>
+                        </li>
+                        <li class="songItem">
+                            <div class="imageplay">
+                                <img src="images/1.jpeg" alt="">
+                                <i class="bi playlistplay bi-play-circle-fill" id="19"></i>
+                            </div>
+                            <span>Shoorveer 3<div class="singer" >Meetu Solanki</div></span>
+                        </li>
+                        <li class="songItem">
+                            <div class="imageplay">
+                                <img src="images/1.jpeg" alt="">
+                                <i class="bi playlistplay bi-play-circle-fill" id="20"></i>
+                            </div>
+                            <span>Shoorveer 3<div class="singer" >Meetu Solanki</div></span>
+                        </li>
                     </div>
-
 
                     <!-- artists List is here  -->
                     <div class="artistlist">
@@ -255,12 +275,12 @@
                 <h4 id="title" >Hope <div class="singer">NF</div></h4>
             </div>
             <div class="icons">
-                <i class="bi bi-shuffle", id="shuffle"></i>
+                <i class="bi shuffle bi-music-note-beamed">next</i>
                 <i class="bi bi-skip-start-fill", id="skipbackward"></i>
                 <i class="bi bi-play-circle", id="play"></i>
                 <i class="bi bi-skip-end-fill", id="skipforward"></i>
-                <i class="bi bi-heart", id="like"></i>
-                <i class="bi bi-cloud-download-fill", id="download"></i>
+                <i class="bi like bi-heart">liked</i>
+                 <a href="" download id="downloadmusic"><i class="bi bi-cloud-download-fill"></i></a>
                 
             </div>
             <span id="currentStart">0:00</span>
@@ -271,19 +291,21 @@
             </div>
             <span id="currentEnd">0:60</span>
             <div class="vol">
-                <i class="bi bi-volume-down-fill"></i>
+                <i class="bi bi-volume-up-fill" id="volicon"></i>
                 <div class="volbar">
                     <input type="range" id="volume">
-                    <div class="volbar2">
+                    <div class="vol_bar2" id="volbar2">
                     <div class="voldot"></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        
     </header>
     <script src="app.js"></script>
+    <footer>
+        This site is build by @Pratik_Devakate its all rights reserved
+    </footer>
     
 </body>
 </html>

@@ -4,9 +4,9 @@ const music = new Audio('audios/NFHope.mp3');
 
 const song =[
     {
-        id:'shoorveer', 
+        id:'0', 
         songName: 'Shoorveer 3 <div class="singer">Meetu Solanki</div>',
-        poster: "images/shoorveer.jpg"
+        poster: "images/0.jpg"
     },
     {
         id:'1', 
@@ -95,7 +95,7 @@ const song =[
     },
     {
         id:'18', 
-        songName: 'Song 4 <div class="singer">Singer18</div>',
+        songName: 'Song 18 <div class="singer">Singer18</div>',
         poster: "images/18.jpg"
     },
     {
@@ -139,6 +139,7 @@ musicplay.addEventListener('click', () => {
         playingsong();
         el.target.classList.remove('bi-vinyl-fill');
         el.target.classList.add('bi-music-player-fill');
+
     }
 });
 
@@ -151,7 +152,6 @@ musicplay.addEventListener('click', () => {
 
 const playingsong =() => {
     Array.from(document.getElementsByClassName('playlistplay')).forEach((el) => {
-     
       el.classList.add('bi-vinyl-fill');
     })
 }
@@ -167,14 +167,16 @@ const makesongbg =() => {
 let index =0; 
 let poster=document.getElementById('currentsongposter');
 let title=document.getElementById('title');
+let downloadmusic = document.getElementById('downloadmusic');
 // index++; 
 // console.log(index); 
 Array.from(document.getElementsByClassName('playlistplay')).forEach((e) => {
     e.addEventListener('click', (el)=> {
         index = el.target.id; 
-        console.log(index);
+        // console.log(index);
         music.src = `audios/${index}.mp3`;
         poster.src = `images/${index}.jpg`;
+        downloadmusic.href = `audios/${index}.mp3`;
         music.play();
         musicplay.classList.remove('bi-play-circle');
         musicplay.classList.add('bi-pause-circle');
@@ -185,6 +187,7 @@ Array.from(document.getElementsByClassName('playlistplay')).forEach((e) => {
         songtitles.forEach((elss) => {
             let {songName} = elss; 
             title.innerHTML=songName; 
+            downloadmusic.setAttribute('download', songName); 
         })
         // let palyingbg = document.getElementById(`song[${index}].id`);
         // palyingbg.classList.add('active2'); 
@@ -195,7 +198,6 @@ Array.from(document.getElementsByClassName('playlistplay')).forEach((e) => {
         el.target.classList.remove('bi-vinyl-fill');
         el.target.classList.add('bi-music-player-fill');
         wave.classList.add('active1');
-
     })
 })
 
@@ -234,6 +236,7 @@ music.addEventListener('timeupdate', () => {
 
     bar2.style.width = `${seekbar}%`; 
     dot.style.left = `${seekbar}%`;
+
 })
 
 seek.addEventListener('change', () => {
@@ -241,6 +244,94 @@ seek.addEventListener('change', () => {
 })
 
 
+
+let volicon = document.getElementById('volicon'); 
+let volume = document.getElementById('volume'); 
+let volbar2 = document.getElementById('volbar2'); 
+let voldot = document.getElementsByClassName('voldot');
+
+volume.addEventListener('change', () => {
+    if(volume.value == 0) {
+        volicon.classList.remove('bi-volume-up-fill');
+        volicon.classList.remove('bi-volume-down-fill');
+        volicon.classList.add('bi-volume-mute-fill');
+    };
+    if(volume.value >0 ) {
+        volicon.classList.remove('bi-volume-up-fill');
+        volicon.classList.add('bi-volume-down-fill');
+        volicon.classList.remove('bi-volume-mute-fill');
+    };
+    if(volume.value > 60 ) {
+        volicon.classList.add('bi-volume-up-fill');
+        volicon.classList.remove('bi-volume-down-fill');
+        volicon.classList.remove('bi-volume-mute-fill');
+    };
+
+    let voli = volume.value; 
+    volbar2.style.width = `${voli}%`;
+    music.volume = voli/100; 
+});
+
+let back = document.getElementById('skipbackward'); 
+let next = document.getElementById('skipforward'); 
+
+back.addEventListener('click', () => {
+    index -= 1;
+    // index = el.target.id; 
+        // console.log(index);
+        if(index <0 ) {
+            index = Array.from(document.getElementsByClassName('songItem')).length - 1; 
+        }
+        music.src = `audios/${index}.mp3`;
+        poster.src = `images/${index}.jpg`;
+        music.play();
+        let songtitles= song.filter((els)=> {
+           return els.id ==index; 
+        })
+
+        songtitles.forEach((elss) => {
+            let {songName} = elss; 
+            title.innerHTML=songName;  
+        })
+        // let palyingbg = document.getElementById(`song[${index}].id`);
+        // palyingbg.classList.add('active2'); 
+        makesongbg(); 
+        Array.from(document.getElementsByClassName('songItem'))[index].style.background ="#24686b26";
+        playingsong();
+        el.target.classList.remove('bi-vinyl-fill');
+        el.target.classList.add('bi-music-player-fill');
+        wave.classList.add('active1');
+
+}); 
+
+next.addEventListener('click', () => {
+    index++ ;
+    // index = el.target.id; 
+        // console.log(index);
+        let last = Array.from(document.getElementsByClassName('songItem')).length;
+        if(index >= last ) { 
+            index = 0;
+        };
+        music.src = `audios/${index}.mp3`;
+        poster.src = `images/${index}.jpg`;
+        music.play();
+        let songtitles= song.filter((els)=> {
+           return els.id ==index; 
+        })
+
+        songtitles.forEach((elss) => {
+            let {songName} = elss; 
+            title.innerHTML=songName;  
+        })
+        // let palyingbg = document.getElementById(`song[${index}].id`);
+        // palyingbg.classList.add('active2'); 
+        makesongbg(); 
+        Array.from(document.getElementsByClassName('songItem'))[index].style.background ="#24686b26";
+        playingsong();
+        el.target.classList.remove('bi-vinyl-fill');
+        el.target.classList.add('bi-music-player-fill');
+        wave.classList.add('active1');
+})
 
 
 
@@ -268,4 +359,162 @@ singer_right.addEventListener('click', () => {
 singer_left.addEventListener('click', () => {
     singers.scrollLeft -= 30;
 });
+
+
+let shuffle = document.getElementsByClassName('shuffle')[0];
+shuffle.addEventListener('click', () => {
+    let a = shuffle.innerHTML; 
+    switch (a) {
+        case "next":
+            shuffle.classList.add('bi-arrow-repeat'); 
+            shuffle.classList.remove('bi-music-note-beamed'); 
+            shuffle.classList.remove('bi-shuffle'); 
+            shuffle.innerHTML = 'repeat'; 
+            break;
+        case "repeat":
+            shuffle.classList.remove('bi-arrow-repeat'); 
+            shuffle.classList.remove('bi-music-note-beamed'); 
+            shuffle.classList.add('bi-shuffle'); 
+            shuffle.innerHTML = 'random'; 
+            break;
+        case "random":
+            shuffle.classList.remove('bi-arrow-repeat'); 
+            shuffle.classList.add('bi-music-note-beamed'); 
+            shuffle.classList.remove('bi-shuffle'); 
+            shuffle.innerHTML = 'next'; 
+            break;
+    }
+})
+
+let like = document.getElementsByClassName('like')[0]; 
+like.addEventListener('click', () => {
+    let a = like.innerHTML; 
+    switch (a) {
+        case "liked":
+            like.classList.remove('bi-heart'); 
+            like.classList.add('bi-heart-fill');
+            like.innerHTML='unlike';
+            break;
+        case "unlike":
+            like.classList.add('bi-heart'); 
+            like.classList.remove('bi-heart-fill');
+            like.innerHTML='liked';
+            break;
+    }
+}); 
+
+const next_music = ()=> {
+    if(index == song.length-1){
+        index = 0; 
+    } else {
+        index++; 
+    }
+    // console.log(index);
+    music.src = `audios/${index}.mp3`;
+    poster.src = `images/${index}.jpg`;
+    downloadmusic.href = `audios/${index}.mp3`;
+    music.play();
+    musicplay.classList.remove('bi-play-circle');
+    musicplay.classList.add('bi-pause-circle');
+    let songtitles= song.filter((els)=> {
+       return els.id ==index; 
+    })
+
+    songtitles.forEach((elss) => {
+        let {songName} = elss; 
+        title.innerHTML=songName; 
+        downloadmusic.setAttribute('download', songName); 
+    })
+    // let palyingbg = document.getElementById(`song[${index}].id`);
+    // palyingbg.classList.add('active2'); 
+
+    makesongbg(); 
+    Array.from(document.getElementsByClassName('songItem'))[index].style.background ="#24686b26";
+    playingsong();
+    el.target.classList.remove('bi-vinyl-fill');
+    el.target.classList.add('bi-music-player-fill');
+    wave.classList.add('active1');
+}
+const repeat_music = ()=> {
+    index;
+    // console.log(index);
+    music.src = `audios/${index}.mp3`;
+    poster.src = `images/${index}.jpg`;
+    downloadmusic.href = `audios/${index}.mp3`;
+    music.play();
+    musicplay.classList.remove('bi-play-circle');
+    musicplay.classList.add('bi-pause-circle');
+    let songtitles= song.filter((els)=> {
+       return els.id ==index; 
+    })
+
+    songtitles.forEach((elss) => {
+        let {songName} = elss; 
+        title.innerHTML=songName; 
+        downloadmusic.setAttribute('download', songName); 
+    })
+    // let palyingbg = document.getElementById(`song[${index}].id`);
+    // palyingbg.classList.add('active2'); 
+
+    makesongbg(); 
+    Array.from(document.getElementsByClassName('songItem'))[index].style.background ="#24686b26";
+    playingsong();
+    el.target.classList.remove('bi-vinyl-fill');
+    el.target.classList.add('bi-music-player-fill');
+    wave.classList.add('active1');
+}
+const random_music = ()=> {
+    if(index == song.length-1) {
+        index = 0; 
+    } else {
+        index = Math.floor((Math.random)*song.length); 
+    }
+    // console.log(index);
+    music.src = `audios/${index}.mp3`;
+    poster.src = `images/${index}.jpg`;
+    downloadmusic.href = `audios/${index}.mp3`;
+    music.play();
+    musicplay.classList.remove('bi-play-circle');
+    musicplay.classList.add('bi-pause-circle');
+    let songtitles= song.filter((els)=> {
+       return els.id ==index; 
+    })
+
+    songtitles.forEach((elss) => {
+        let {songName} = elss; 
+        title.innerHTML=songName; 
+        downloadmusic.setAttribute('download', songName); 
+    })
+    // let palyingbg = document.getElementById(`song[${index}].id`);
+    // palyingbg.classList.add('active2'); 
+
+    makesongbg(); 
+    Array.from(document.getElementsByClassName('songItem'))[index].style.background ="#24686b26";
+    playingsong();
+    el.target.classList.remove('bi-vinyl-fill');
+    el.target.classList.add('bi-music-player-fill');
+    wave.classList.add('active1');
+}; 
+
+music.addEventListener('ended', () => {
+   let b = shuffle.innerHTML; 
+
+   switch (b) {
+    case 'repeat':
+        repeat_music(); 
+        break;
+    case 'next':
+        next_music(); 
+        break;
+    case 'random':
+        random_music(); 
+        break;  
+   }
+})
+
+
+
+
+
+
 
